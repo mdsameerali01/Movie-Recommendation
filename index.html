@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Recommendation</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="navbar-item">
+      <label for="genre">Genre:</label>
+      <select id="genre">
+        <option value="" disabled selected>Select Genre</option>
+        <option value="Action">Action</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Adventure">Drama</option>
+        <option value="Drama">Horror</option>
+        <option value="Sci-Fi">Sci-Fi</option>
+      </select>
+    </div>
+    <div class="navbar-item">
+      <label for="duration">Movie Duration:</label>
+      <select id="duration">
+        <option value="" disabled selected>Select Movie Duration</option>
+        <option value="Short">Short(under 90 minutes)</option>
+        <option value="Medium">Medium(90-120 minutes)</option>
+        <option value="Long">Long(over 120 minutes)</option>
+      </select>
+    </div>
+    <div class="navbar-item">
+      <label for="mood">Mood:</label>
+      <select id="mood">
+        <option value="" disabled selected>Select Mood</option>
+        <option value="Happy">Happy</option>
+        <option value="relaxed">Relaxed</option>
+        <option value="Excited">Excited</option>
+        <option value="Adventurous">Adventurous</option>
+      </select>
+    </div>
+    <button onclick="searchRecommendation()">
+      <i>🔍</i> <div class="search">Search</div>
+    </button>
+  </div>
+    <!-- Recommendation Page -->
+  <div class="recommendation-page" id="recommendation-page" style="display: none;">
+    <h1>Based on Your Preferences</h1>
+    <p class="recommendation-text">
+      We recommend watching <strong>The Grand Budapest Hotel</strong> — a quirky comedy film 
+      with a runtime of 99 minutes, perfect for a happy mood. Enjoy this lighthearted, visually 
+      stunning adventure!
+    </p>
+    <div class="recommendation-card">
+      <img src="images/budapest.jpeg" alt="Recommended Movie">
+      
+    </div>
+  </div>
+<div class="container1" id="navbar1">
+    
+  
+  <div class="carousel-container">
+    <div class="carousel" id="carousel">
+      <!-- Slide 1 -->
+      <div class="carousel-item">
+        <img src="images/gb.jpg" alt="Image 1">
+        <div class="carousel-content">
+          <h3>Discover the World</h3>
+          <button>Play</button>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <img src="images/mn2.jpg" alt="Image 2">
+        <div class="carousel-content">
+          <h3>Experience the Adventure</h3>
+          <button>Play</button>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <img src="images/mn4.jpg" alt="Image 3">
+        <div class="carousel-content">
+          <h3>Relax and Enjoy</h3>
+          <button>Play</button>
+        </div>
+      </div>
+      <!-- Slide 4 -->
+      <div class="carousel-item">
+        <img src="images/mn3.jif" alt="Image 4">
+        <div class="carousel-content">
+          <h3>Explore the Unknown</h3>
+          <button>Play</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <button class="carousel-button left" id="prevBtn">❮</button>
+    <button class="carousel-button right" id="nextBtn">❯</button>
+  </div>
+
+
+ 
+
+
+  <!-- middle -->
+
+  <div class="container">
+    <!-- Section 1: Our Genres -->
+    <div class="section">
+      <h2>Our Genres</h2>
+      <div class="genres">
+        <div class="card">
+          <img src="images/gn1.jpg" alt="Adventure">
+          <div class="card-title">Adventure</div>
+        </div>
+        <div class="card">
+          <img src="images/dk.jpg" alt="Action">
+          <div class="card-title">Horror</div>
+        </div>
+        <div class="card">
+          <img src="images/gn4.png" alt="Comedy">
+          <div class="card-title">Adventure</div>
+        </div>
+        <div class="card">
+          <img src="images/gn5.jpg" alt="Drama">
+          <div class="card-title">Action</div>
+        </div>
+        <div class="card">
+          <img src="images/gn6.jpg" alt="Horror">
+          <div class="card-title">Drama</div>
+        </div>
+        <div class="card">
+          <img src="images/gn2.jpg" alt="SciFi">
+          <div class="card-title">Sci-Fi</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: New Releases -->
+    <div class="section swipe-section">
+      <h2>New Releases</h2>
+      <button class="swipe-btn left" onclick="scrollLeft('newReleases')">❮</button>
+      <button class="swipe-btn right" onclick="scrollRight('newReleases')">❯</button>
+      <div class="swipe-container" id="newReleases">
+        <div class="swipe-card">
+          <img src="images/ag1.jpeg" alt="New Release 1">
+          <div class="swipe-card-title">Release 1</div>
+        </div>
+        <div class="swipe-card">
+            <img src="images/ag2.jpeg" alt="New Release 1">
+            <div class="swipe-card-title">Release 1</div>
+          </div>
+          <div class="swipe-card">
+            <img src="images/ag3.jpeg" alt="New Release 1">
+            <div class="swipe-card-title">Release 1</div>
+          </div>
+          <div class="swipe-card">
+            <img src="images/ag4.jpg" alt="New Release 1">
+            <div class="swipe-card-title">Release 1</div>
+          </div>
+          <div class="swipe-card">
+            <img src="images/ag5.jpg" alt="New Release 1">
+            <div class="swipe-card-title">Release 1</div>
+          </div>
+          <div class="swipe-card">
+            <img src="images/ag6.jpg" alt="New Release 1">
+            <div class="swipe-card-title">Release 1</div>
+          </div>
+          <div class="swipe-card">
+            <img src="images/ag3.jpeg" alt="New Release 1">
+            <div class="swipe-card-title">Release 1</div>
+          </div>
+          <div class="swipe-card">
+            <img src="images/ag1.jpeg" alt="New Release 1">
+            <div class="swipe-card-title">Release 1</div>
+          </div>
+        <!-- Add 6 more similar cards here -->
+      </div>
+    </div>
+
+    <!-- Section 3: Recommendeds -->
+    <div class="section swipe-section">
+      <h2>Recommendeds</h2>
+      <button class="swipe-btn left" onclick="scrollLeft('recommendeds')">❮</button>
+      <button class="swipe-btn right" onclick="scrollRight('recommendeds')">❯</button>
+      <div class="swipe-container" id="recommendeds">
+        <div class="swipe-card">
+          <img src="images/hp11.jpg" alt="Recommended 1">
+          <div class="swipe-card-title">Recommended 1</div>
+        </div>
+        <div class="swipe-card">
+            <img src="images/hp2.jpg" alt="Recommended 1">
+            <div class="swipe-card-title">Recommended 1</div>
+          </div>
+          <div class="swipe-card">
+            <img src="images/hp3.jpg" alt="Recommended 1">
+            <div class="swipe-card-title">Recommended 1</div>
+          </div>
+          <div class="swipe-card">
+            <img src="images/hp4.jpg" alt="Recommended 1">
+            <div class="swipe-card-title">Recommended 1</div>
+          </div>
+          <div class="swipe-card">
+            <img src="images/hp5.jpg" alt="Recommended 1">
+            <div class="swipe-card-title">Recommended 1</div>
+          </div> <div class="swipe-card">
+            <img src="images/hp6.jpg" alt="Recommended 1">
+            <div class="swipe-card-title">Recommended 1</div>
+          </div> <div class="swipe-card">
+            <img src="images/hp7.jpg" alt="Recommended 1">
+            <div class="swipe-card-title">Recommended 1</div>
+          </div>
+        <!-- Add 6 more similar cards here -->
+      </div>
+    </div>
+
+    <!-- Section 4: Coming Soon -->
+    <div class="section">
+      <h2>Coming Soon</h2>
+      <div class="coming-soon">
+        <div class="card">
+          <img src="images/cm1.jpg" alt="Coming Soon 1">
+          <div class="card-title">Coming Soon 1</div>
+        </div>
+        <div class="card">
+            <img src="images/sq1.jpg" alt="Coming Soon 1">
+            <div class="card-title">Coming Soon 1</div>
+          </div>
+          <div class="card">
+            <img src="images/lift.jpg" alt="Coming Soon 1">
+            <div class="card-title">Coming Soon 1</div>
+          </div>
+          <div class="card">
+            <img src="images/st1.jpg" alt="Coming Soon 1">
+            <div class="card-title">Coming Soon 1</div>
+          </div>
+          <div class="card">
+            <img src="images/mn.jpg" alt="Coming Soon 1">
+            <div class="card-title">Coming Soon 1</div>
+          </div>
+        <!-- Add 5 more similar cards here -->
+      </div>
+    </div>
+    <div class="section">
+        <h2>Our Characters</h2>
+        <div class="characters">
+          <div class="character">
+            <img src="images/cr1.jpg" alt="Character 1">
+          </div>
+          <div class="character">
+            <img src="images/cr2.jpg" alt="Character 2">
+          </div>
+          <div class="character">
+            <img src="images/cr3.jpg" alt="Character 3">
+          </div>
+          <div class="character">
+            <img src="images/cr4.jpg" alt="Character 4">
+          </div>
+          <div class="character">
+            <img src="images/cr5.jpg" alt="Character 5">
+          </div>
+          <div class="character">
+            <img src="images/cr6.jpg" alt="Character 6">
+          </div>
+          <div class="character">
+            <img src="images/cr2.jpg" alt="Character 7">
+          </div>
+          <div class="character">
+            <img src="images/cr3.jpg" alt="Character 8">
+          </div>
+        </div>
+      </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Movies</h3>
+        <ul>
+          <li>Genres</li>
+          <li>Trending</li>
+          <li>New Releases</li>
+          <li>Popular</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Shows</h3>
+        <ul>
+          <li>Genres</li>
+          <li>Trending</li>
+          <li>New Releases</li>
+          <li>Popular</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Useful</h3>
+        <ul>
+          <li>Support</li>
+          <li>FAQ</li>
+          <li>Live Chat</li>
+          <li>Privacy Policy</li>
+          <li>Terms Of Use</li>
+          <li>About us</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Support</h3>
+        <ul>
+          <li>Email: <a href="mailto:mdsameer.ece2021@ritroorkee.com">mdsameer.ece2021@ritroorkee.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 All Rights Reserved</p>
+    </div>
+  </footer>
+ <!-- Recommendation Page -->
+</div>
+  <script>
+    function searchRecommendation() {
+  const genre = document.getElementById("genre").value;
+  const duration = document.getElementById("duration").value;
+  const mood = document.getElementById("mood").value;
+
+  // Select all containers except the recommendation page
+  const containers = document.querySelectorAll(".container1");
+  const recommendationPage = document.getElementById("recommendation-page");
+
+  if (genre === "Comedy" && duration === "Medium" && mood === "Happy") {
+    // Hide all containers except the recommendation page
+    containers.forEach((container) => {
+      if (container !== recommendationPage) {
+        container.style.display = "none";
+      }
+    });
+
+    // Show the recommendation page
+    recommendationPage.classList.remove("hidden");
+    recommendationPage.style.display = "block"; // Ensure it's displayed
+  } else {
+    alert("No recommendation available for the selected options.");
+  }
+}
+
+   
+
+     // JavaScript for Carousel Functionality
+     const carousel = document.getElementById("carousel");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    let index = 0;
+
+    const updateCarousel = () => {
+      carousel.style.transform = `translateX(${-index * 100}%)`;
+    };
+
+    nextBtn.addEventListener("click", () => {
+      index = (index + 1) % 4; // Assuming 4 items
+      updateCarousel();
+    });
+
+    prevBtn.addEventListener("click", () => {
+      index = (index - 1 + 4) % 4; // Ensures it loops back
+      updateCarousel();
+    });
+
+    // Auto-slide (optional)
+    setInterval(() => {
+      index = (index + 1) % 4;
+      updateCarousel();
+    }, 5000); // Change every 5 seconds
+  
+    //middle
+
+    function scrollLeft(id) {
+  const container = document.getElementById(id);
+  container.scrollBy({ left: -100, behavior: 'smooth' }); // Scroll left by 300px
+}
+
+function scrollRight(id) {
+  const container = document.getElementById(id);
+  container.scrollBy({ left: 300, behavior: 'smooth' }); // Scroll right by 300px
+}
+  </script>
+
+</body>
+</html>
